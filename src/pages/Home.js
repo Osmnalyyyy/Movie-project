@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../components/Cards";
+import Form from "../components/Form";
 import { saveUser } from "../store/auth-slice";
 
 const user1 = {
   name: "osman",
   password: "12345",
   email: "osman@gmail.com",
+  password: "12345",
 };
 
 const Home = () => {
@@ -29,9 +31,9 @@ const Home = () => {
 
   return (
     <div>
+      <Cards />
       <button onClick={() => dispatch(saveUser(user1))}>Veri Gönder</button>
       <button onClick={() => getMovie()}>Filmi Getir</button>
-      <Cards />
     </div>
   );
 };
