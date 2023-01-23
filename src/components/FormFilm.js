@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getMovie } from "../store/get-movie";
 
 const FormFilm = () => {
   const [searchMovie, setSearchMovie] = useState("");
-
-  const handleFilm = () => {};
+  const dispatch = useDispatch();
+  const handleFilm = async (e) => {
+    e.preventDefault();
+    dispatch(getMovie(searchMovie));
+  };
 
   return (
     <div>

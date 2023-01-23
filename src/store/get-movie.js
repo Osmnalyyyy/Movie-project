@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const getMovie = createAsyncThunk("movie/getmovie", async (search) => {
+export const getMovie = createAsyncThunk("movie/getmovie", async (search) => {
   const response = await fetch(
     `http://www.omdbapi.com/?t=${search}&apikey=ce62ee3b`
   ).then((resp) => resp.json());
@@ -22,10 +22,12 @@ const movieSlice = createSlice({
     builder.addCase(getMovie.fulfilled, (state, action) => {
       state.isLoading = false;
       state.movie = action.payload;
+      console.log(action);
     });
     builder.addCase(getMovie.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
+      console.log(action);
 
       /*  if (action.payload) {
             state.error=action.payload;
@@ -36,4 +38,4 @@ const movieSlice = createSlice({
   },
 });
 
-export default getMovie;
+export default movieSlice.reducer;

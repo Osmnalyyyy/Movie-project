@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../components/Cards";
 import Form from "../components/Form";
+import FormFilm from "../components/FormFilm";
 import { saveUser } from "../store/auth-slice";
 
 const user1 = {
@@ -32,6 +33,7 @@ const Home = () => {
   return (
     <div>
       <Cards />
+      <FormFilm />
       <button onClick={() => dispatch(saveUser(user1))}>Veri Gönder</button>
       <button onClick={() => getMovie()}>Filmi Getir</button>
     </div>
