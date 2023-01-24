@@ -1,9 +1,9 @@
 import React from "react";
-import Card from "./Card";
+import FilmCard from "./FilmCard";
 const Cards = () => {
   return (
     <div>
-      <Card />
+      <FilmCard />
     </div>
   );
 };
