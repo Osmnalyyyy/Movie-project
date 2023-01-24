@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button, Container, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { getMovie } from "../store/get-movie";
 
@@ -13,21 +14,10 @@ const FormFilm = () => {
   return (
     <Container>
       <Form inline onSubmit={handleFilm}>
-        <FormGroup className="mr-2">
-          <Label htmlFor="example-film-input-hidden" hidden>
-            Input movie
-          </Label>
-          <Input
-            type="text"
-            name="film"
-            id="example-film-input-hidden"
-            placeholder=" input movie name"
-            value={searchMovie}
-            onChange={(e) => setSearchMovie(e.target.value)}
-          />
-        </FormGroup>
-
-        <Button color="warning">Search Movie</Button>
+        <Form.Group className="mb-3 mr-3" controlId="exampleForm.ControlInput1">
+          <Form.Control type="text" placeholder="input your movie..." />
+          <Button color="warning">Search Movie</Button>
+        </Form.Group>
       </Form>
     </Container>
   );

@@ -5,13 +5,7 @@ import Form from "../components/Form";
 import FormFilm from "../components/FormFilm";
 import { saveUser } from "../store/auth-slice";
 import { addMovie } from "../store/movie-data-slice";
-
-const user1 = {
-  name: "osman",
-  password: "12345",
-  email: "osman@gmail.com",
-  password: "12345",
-};
+import { Button } from "@bootstrap-styled/v4";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,8 +16,10 @@ const Home = () => {
     <div>
       <Cards />
       <FormFilm />
-      <button onClick={() => dispatch(addMovie(movie.movie))}>Add Movie</button>
-      <button onClick={() => dispatch(saveUser(user1))}>Veri Gönder</button>
+
+      <Button color="primary" onClick={() => dispatch(addMovie(movie.movie))}>
+        Add Movie
+      </Button>
     </div>
   );
 };
