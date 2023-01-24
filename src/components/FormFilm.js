@@ -11,19 +11,25 @@ const FormFilm = () => {
   };
 
   return (
-    <div>
-      <form action="" onSubmit={handleFilm}>
-        <label htmlFor="film">Input movie</label>
-        <input
-          type="text"
-          name="film"
-          id="film"
-          value={searchMovie}
-          onChange={(e) => setSearchMovie(e.target.value)}
-        />
-        <button type="submit">Search movie</button>
-      </form>
-    </div>
+    <Container>
+      <Form inline onSubmit={handleFilm}>
+        <FormGroup className="mr-2">
+          <Label htmlFor="example-film-input-hidden" hidden>
+            Input movie
+          </Label>
+          <Input
+            type="text"
+            name="film"
+            id="example-film-input-hidden"
+            placeholder=" input movie name"
+            value={searchMovie}
+            onChange={(e) => setSearchMovie(e.target.value)}
+          />
+        </FormGroup>
+
+        <Button color="warning">Search Movie</Button>
+      </Form>
+    </Container>
   );
 };
 
