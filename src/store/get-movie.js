@@ -5,6 +5,7 @@ export const getMovie = createAsyncThunk("movie/getmovie", async (search) => {
     `http://www.omdbapi.com/?t=${search}&apikey=ce62ee3b`
   ).then((resp) => resp.json());
   return response;
+  console.log(response);
 });
 
 const movieSlice = createSlice({

@@ -11,19 +11,20 @@ const FilmCard = ({ item }) => {
   for (let i = 1; i <= 9; i++) {
     if (i <= imdbRating) {
       arr.push(<BsStarFill />);
-    } else if (i < imdbRating && imdbRating < i + 1) {
-      arr.push(<BsStarHalf />);
-    } else {
-      arr.push(<BsStar />);
     }
   }
+  if (imdbRating % 1 !== 0) {
+    arr.push(<BsStarHalf />);
+  }
+  for (let i = arr.length; i <= 9; i++) {
+    arr.push(<BsStar />);
+  }
 
-  console.log(arr);
   return (
     <Card className="h-100 col-3  m-3 text-center">
       <Card.Img variant="top" src={Poster} height="250vh" />
       <Card.Body>
-        <div>
+        <div className="star">
           {arr.map((item) => (
             <span>{item}</span>
           ))}

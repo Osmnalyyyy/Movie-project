@@ -10,8 +10,8 @@ import { addMovie } from "../store/movie-data-slice";
 const Home = () => {
   return (
     <div>
-      <Cards />
       <FormFilm />
+      <Cards />
     </div>
   );
 };

@@ -21,6 +21,8 @@ const FormFilm = () => {
             type="text"
             placeholder="input your movie..."
             style={{ width: "25%" }}
+            value={searchMovie}
+            onChange={(e) => setSearchMovie(e.target.value)}
           />
           <Button className="btn btn-warning me-3" type="submit">
             Search Movie
