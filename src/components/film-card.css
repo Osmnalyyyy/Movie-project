@@ -1,0 +1,14 @@
+.text {
+  /*  white-space: pre-line; */
+  height: 90px !important;
+  overflow-y: hidden;
+  text-overflow: ellipsis !important;
+}
+
+.buton {
+  width: 25px;
+  height: 25px;
+  padding: 1px;
+  text-align: center;
+  align-items: center;
+}
