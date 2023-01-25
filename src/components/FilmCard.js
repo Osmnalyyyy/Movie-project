@@ -3,7 +3,7 @@ import { Button, Card } from "react-bootstrap";
 
 const FilmCard = () => {
   return (
-    <Card className="h-100 col-4">
+    <Card className="h-100 col-4 ml-4">
       <Card.Img
         variant="top"
         src="holder.js/100px180"
@@ -15,8 +15,10 @@ const FilmCard = () => {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </Card.Text>
-        <Button variant="primary">Update Movie</Button>
-        <Button variant="primary">Delete Movie</Button>
+        <Button className="me-3" variant="success">
+          Update Movie
+        </Button>
+        <Button variant="danger">Delete Movie</Button>
       </Card.Body>
     </Card>
   );
