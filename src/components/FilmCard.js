@@ -7,17 +7,22 @@ const FilmCard = ({ item }) => {
   const { Title, Poster, imdbRating, Plot, year, Genre } = item;
 
   let arr = [];
-
-  for (let i = 1; i <= 9; i++) {
-    if (i <= imdbRating) {
-      arr.push(<BsStarFill />);
+  if (!imdbRating) {
+    for (let i = 1; i <= 10; i++) {
+      arr.push(<BsStar />);
     }
-  }
-  if (imdbRating % 1 !== 0) {
-    arr.push(<BsStarHalf />);
-  }
-  for (let i = arr.length; i <= 9; i++) {
-    arr.push(<BsStar />);
+  } else {
+    for (let i = 1; i <= 9; i++) {
+      if (i <= imdbRating) {
+        arr.push(<BsStarFill />);
+      }
+    }
+    if (imdbRating % 1 !== 0) {
+      arr.push(<BsStarHalf />);
+    }
+    for (let i = arr.length; i <= 9; i++) {
+      arr.push(<BsStar />);
+    }
   }
 
   return (
