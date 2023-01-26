@@ -5,7 +5,7 @@ import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { deleteMovie } from "../store/movie-data-slice";
 import { useDispatch } from "react-redux";
 
-const FilmCard = ({ item }) => {
+const FilmCard = ({ item, setModalShow, setModalData }) => {
   const { Title, Poster, imdbRating, Plot, year, Genre } = item;
 
   const dispatch = useDispatch();
@@ -49,7 +49,14 @@ const FilmCard = ({ item }) => {
         </div>
 
         <div className="d-flex justify-content-space-between buton">
-          <Button className="" variant="success">
+          <Button
+            className=""
+            variant="success"
+            onClick={() => {
+              setModalShow(true);
+              setModalData({ Title, imdbRating });
+            }}
+          >
             Update
           </Button>
           <Button
