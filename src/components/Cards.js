@@ -13,8 +13,6 @@ const Cards = () => {
     imdbID: "",
   });
 
-  console.log(modalData);
-
   return (
     <Container>
       <Row>

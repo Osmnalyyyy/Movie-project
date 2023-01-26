@@ -38,7 +38,7 @@ const ModalFilm = (props) => {
             Film Title
           </InputGroup.Text>
           <Form.Control
-            onChange={(e) => setUpData(e.target.value)}
+            onChange={(e) => setUpData({ ...upData, Title: e.target.value })}
             value={upData.Title}
             aria-label="Small"
             aria-describedby="inputGroup-sizing-sm"
@@ -47,7 +47,9 @@ const ModalFilm = (props) => {
         <InputGroup size="sm" className="mb-3">
           <InputGroup.Text id="inputGroup-sizing-sm">Rating</InputGroup.Text>
           <Form.Control
-            onChange={(e) => setUpData(e.target.value)}
+            onChange={(e) =>
+              setUpData({ ...upData, imdbRating: e.target.value })
+            }
             value={upData.imdbRating}
             aria-label="Small"
             type="number"

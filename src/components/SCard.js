@@ -1,14 +1,8 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
-import "./film-card.css";
+import { Card } from "react-bootstrap";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
-import { deleteMovie } from "../store/movie-data-slice";
-import { useDispatch } from "react-redux";
-
-const FilmCard = ({ item, setModalShow, setModalData }) => {
+const SCard = ({ item }) => {
   const { Title, Poster, imdbRating, Plot, year, Genre, imdbID } = item;
-
-  const dispatch = useDispatch();
 
   let arr = [];
   if (!imdbRating) {
@@ -32,7 +26,7 @@ const FilmCard = ({ item, setModalShow, setModalData }) => {
   return (
     <Card className="h-100 col-3  m-3 text-center">
       <Card.Img
-        className="card-image"
+        className="card-images"
         variant="top"
         src={Poster}
         height="250vh"
@@ -47,29 +41,9 @@ const FilmCard = ({ item, setModalShow, setModalData }) => {
         <div className="text">
           <Card.Text>{Plot}</Card.Text>
         </div>
-
-        <div className="d-flex justify-content-space-between buton">
-          <Button
-            className=""
-            variant="success"
-            onClick={() => {
-              setModalShow(true);
-              setModalData({ Title, imdbRating, imdbID });
-            }}
-          >
-            Update
-          </Button>
-          <Button
-            variant="danger"
-            className=""
-            onClick={() => dispatch(deleteMovie(item))}
-          >
-            Delete
-          </Button>
-        </div>
       </Card.Body>
     </Card>
   );
 };
 
-export default FilmCard;
+export default SCard;

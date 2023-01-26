@@ -11,13 +11,15 @@ const movieDataSlice = createSlice({
       return state.filter((item) => item.imdbID !== action.payload.imdbID);
     },
     updateMovie: (state, action) => {
-      state.map((item) => {
+      return state.map((item) => {
         if (item.imdbID === action.payload.imdbID) {
           return {
             ...item,
             Title: action.payload.Title,
             imdbRating: action.payload.imdbRating,
           };
+        } else {
+          return item;
         }
       });
     },

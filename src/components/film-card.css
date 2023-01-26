@@ -6,7 +6,7 @@
 }
 
 .buton {
-  width: 25px;
+  width: 35%;
   height: 25px;
   padding: 1px;
   text-align: center;
@@ -17,6 +17,9 @@
 }
 .card-image {
   height: 50vh !important;
+}
+card-images {
+  height: 20vh !important;
 }
 .card-title {
   margin-top: 5px !important;
