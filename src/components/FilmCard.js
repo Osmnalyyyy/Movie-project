@@ -2,9 +2,13 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import "./film-card.css";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
+import { deleteMovie } from "../store/movie-data-slice";
+import { useDispatch } from "react-redux";
 
 const FilmCard = ({ item }) => {
   const { Title, Poster, imdbRating, Plot, year, Genre } = item;
+
+  const dispatch = useDispatch();
 
   let arr = [];
   if (!imdbRating) {
@@ -27,14 +31,19 @@ const FilmCard = ({ item }) => {
 
   return (
     <Card className="h-100 col-3  m-3 text-center">
-      <Card.Img variant="top" src={Poster} height="250vh" />
+      <Card.Img
+        className="card-image"
+        variant="top"
+        src={Poster}
+        height="250vh"
+      />
       <Card.Body>
         <div className="star">
           {arr.map((item) => (
             <span>{item}</span>
           ))}
         </div>
-        <Card.Title>{Title}</Card.Title>
+        <Card.Title className="card-title">{Title}</Card.Title>
         <div className="text">
           <Card.Text>{Plot}</Card.Text>
         </div>
@@ -43,7 +52,11 @@ const FilmCard = ({ item }) => {
           <Button className="" variant="success">
             Update
           </Button>
-          <Button variant="danger" className="">
+          <Button
+            variant="danger"
+            className=""
+            onClick={() => dispatch(deleteMovie(item))}
+          >
             Delete
           </Button>
         </div>
