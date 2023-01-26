@@ -24,7 +24,7 @@ const SCard = ({ item }) => {
   }
 
   return (
-    <Card className="h-100 col-3  m-3 text-center">
+    <Card className="h-100   m-3 text-center">
       <Card.Img
         className="card-images"
         variant="top"
