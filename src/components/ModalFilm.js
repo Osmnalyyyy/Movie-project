@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { updateMovie } from "../store/movie-data-slice";
 
 const ModalFilm = (props) => {
+  const dispatch = useDispatch();
+
   const [upData, setUpData] = useState({
     Title: props.modalData.Title,
     imdbRating: props.modalData.imdbRating,
     imdbID: props.modalData.imdbID,
   });
-  const handleUpdate = () => {};
+
+  useEffect(() => {
+    setUpData(props.modalData);
+  }, [props.modalData.imdbID]);
+
+  console.log(upData);
+  const handleUpdate = () => {
+    dispatch(updateMovie(upData));
+  };
   return (
     <Modal
       {...props}
@@ -37,8 +48,9 @@ const ModalFilm = (props) => {
           <InputGroup.Text id="inputGroup-sizing-sm">Rating</InputGroup.Text>
           <Form.Control
             onChange={(e) => setUpData(e.target.value)}
-            value={upData.Title}
+            value={upData.imdbRating}
             aria-label="Small"
+            type="number"
             aria-describedby="inputGroup-sizing-sm"
           />
         </InputGroup>

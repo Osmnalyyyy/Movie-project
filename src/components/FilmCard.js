@@ -6,7 +6,7 @@ import { deleteMovie } from "../store/movie-data-slice";
 import { useDispatch } from "react-redux";
 
 const FilmCard = ({ item, setModalShow, setModalData }) => {
-  const { Title, Poster, imdbRating, Plot, year, Genre } = item;
+  const { Title, Poster, imdbRating, Plot, year, Genre, imdbID } = item;
 
   const dispatch = useDispatch();
 
@@ -54,7 +54,7 @@ const FilmCard = ({ item, setModalShow, setModalData }) => {
             variant="success"
             onClick={() => {
               setModalShow(true);
-              setModalData({ Title, imdbRating });
+              setModalData({ Title, imdbRating, imdbID });
             }}
           >
             Update
