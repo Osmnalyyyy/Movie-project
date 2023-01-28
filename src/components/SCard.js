@@ -4,6 +4,9 @@ import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 const SCard = ({ item }) => {
   const { Title, Poster, imdbRating, Plot, year, Genre, imdbID } = item;
 
+  const notFound =
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRly0Gbq7OzdfgXPyZFvzXC1FzwKQ-UXZXIWPR4lOS5Bw&s";
+
   let arr = [];
   if (!imdbRating) {
     for (let i = 1; i <= 10; i++) {
@@ -28,7 +31,7 @@ const SCard = ({ item }) => {
       <Card.Img
         className="card-images"
         variant="top"
-        src={Poster}
+        src={Poster ? Poster : notFound}
         height="250vh"
       />
       <Card.Body>
