@@ -9,7 +9,7 @@ const SelectSearch = ({ UniqGenre, UniqYears, setFilterData, filterData }) => {
           setFilterData({ ...filterData, Genre: e.target.value })
         }
       >
-        <option>Select Movie Genre</option>
+        <option value="">Select Movie Genre</option>
         {UniqGenre?.map((item, i) => (
           <option value={item} key={i}>
             {item}
@@ -19,7 +19,7 @@ const SelectSearch = ({ UniqGenre, UniqYears, setFilterData, filterData }) => {
       <Form.Select
         onChange={(e) => setFilterData({ ...filterData, Year: e.target.value })}
       >
-        <option>Select Movie Year</option>
+        <option value="">Select Movie Year</option>
         {UniqYears?.map((item, i) => (
           <option value={item} key={i}>
             {item}

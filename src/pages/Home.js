@@ -2,24 +2,24 @@ import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../components/Cards";
-import { UniqArr, UniqYear } from "../helper/functions";
+import { filterMovie, UniqArr, UniqYear } from "../helper/functions";
 import FormFilm from "../components/FormFilm";
 import InputSearch from "../components/InputSearch";
 import SelectSearch from "../components/SelectSearch";
+import { Button } from "react-bootstrap";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const { auth, movie, data } = useSelector((state) => state);
-  const [filterData, setFilterData] = useState({
+  const initialValues = {
     imdbRating: "",
     Title: "",
     Year: "",
     Genre: "",
-  });
+  };
+  const dispatch = useDispatch();
+  const { auth, movie, data } = useSelector((state) => state);
+  const [filterData, setFilterData] = useState(initialValues);
   const UniqGenre = UniqArr(data);
   const UniqYears = UniqYear(data);
-
-  console.log(filterData);
 
   const filteredData = filterMovie(filterData, data);
 
@@ -35,7 +35,17 @@ const Home = () => {
           UniqYears={UniqYears}
         />
       </div>
-      <Cards />
+      <div>
+        <Button
+          variant="info"
+          type="button"
+          onClick={() => setFilterData(initialValues)}
+        >
+          Clear Filter
+        </Button>
+      </div>
+
+      <Cards filteredData={filteredData} />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import FilmCard from "./FilmCard";
 import ModalFilm from "./ModalFilm";
 
-const Cards = () => {
+const Cards = ({ filteredData }) => {
   const { data } = useSelector((state) => state);
   const [modalShow, setModalShow] = useState(false);
   const [modalData, setModalData] = useState({
@@ -16,7 +16,7 @@ const Cards = () => {
   return (
     <Container>
       <Row>
-        {data.map((item, i) => (
+        {filteredData.map((item, i) => (
           <FilmCard
             setModalData={setModalData}
             item={item}

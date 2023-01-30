@@ -26,9 +26,22 @@ export const UniqYear = (data) => {
   return uniqYear;
 };
 
-export const filterMovie = (filter, data) => {
-  const movies = data.filter((item) => {
-    if (filter.Year) {
-    }
-  });
+export const filterMovie = (filter1, data) => {
+  let movies = data
+    .filter((item) =>
+      filter1.imdbRating
+        ? Math.floor(item.imdbRating) == filter1.imdbRating
+        : item
+    )
+    .filter((item) => (filter1.Title ? item.Title == filter1.Title : item))
+    .filter((item) => (filter1.Year ? item.Year == filter1.Year : item))
+    .filter((item) => {
+      if (item.Genre.includes(filter1.Genre)) {
+        return item;
+      } else {
+        return;
+      }
+    });
+
+  return movies;
 };
