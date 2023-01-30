@@ -16,11 +16,12 @@ const Cards = () => {
   return (
     <Container>
       <Row>
-        {data.map((item) => (
+        {data.map((item, i) => (
           <FilmCard
             setModalData={setModalData}
             item={item}
             setModalShow={setModalShow}
+            key={i}
           />
         ))}
       </Row>

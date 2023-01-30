@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../components/Cards";
@@ -10,7 +10,12 @@ import SelectSearch from "../components/SelectSearch";
 const Home = () => {
   const dispatch = useDispatch();
   const { auth, movie, data } = useSelector((state) => state);
-
+  const [filteredData, setFilteredData] = useState({
+    imdbRating: "",
+    Title: "",
+    Year: "",
+    Genre: "",
+  });
   const UniqGenre = UniqArr(data);
   const UniqYears = UniqYear(data);
 
@@ -18,8 +23,16 @@ const Home = () => {
     <div>
       <FormFilm />
       <div>
-        <InputSearch />
-        <SelectSearch UniqGenre={UniqGenre} UniqYears={UniqYears} />
+        <InputSearch
+          filteredData={filteredData}
+          setFilteredData={setFilteredData}
+        />
+        <SelectSearch
+          filteredData={filteredData}
+          setFilteredData={setFilteredData}
+          UniqGenre={UniqGenre}
+          UniqYears={UniqYears}
+        />
       </div>
       <Cards />
     </div>
