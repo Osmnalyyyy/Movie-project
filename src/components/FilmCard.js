@@ -39,8 +39,10 @@ const FilmCard = ({ item, setModalShow, setModalData }) => {
       />
       <Card.Body>
         <div className="star">
-          {arr.map((item) => (
-            <span style={{ fontSize: "70%" }}>{item}</span>
+          {arr.map((item, i) => (
+            <span style={{ fontSize: "70%" }} key={i}>
+              {item}
+            </span>
           ))}
         </div>
         <Card.Title className="card-title">{Title}</Card.Title>
