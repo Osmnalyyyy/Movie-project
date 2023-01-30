@@ -25,3 +25,10 @@ export const UniqYear = (data) => {
 
   return uniqYear;
 };
+
+export const filterMovie = (filter, data) => {
+  const movies = data.filter((item) => {
+    if (filter.Year) {
+    }
+  });
+};

@@ -10,7 +10,7 @@ import SelectSearch from "../components/SelectSearch";
 const Home = () => {
   const dispatch = useDispatch();
   const { auth, movie, data } = useSelector((state) => state);
-  const [filteredData, setFilteredData] = useState({
+  const [filterData, setFilterData] = useState({
     imdbRating: "",
     Title: "",
     Year: "",
@@ -19,17 +19,18 @@ const Home = () => {
   const UniqGenre = UniqArr(data);
   const UniqYears = UniqYear(data);
 
+  console.log(filterData);
+
+  const filteredData = filterMovie(filterData, data);
+
   return (
     <div>
       <FormFilm />
       <div>
-        <InputSearch
-          filteredData={filteredData}
-          setFilteredData={setFilteredData}
-        />
+        <InputSearch filterData={filterData} setFilterData={setFilterData} />
         <SelectSearch
-          filteredData={filteredData}
-          setFilteredData={setFilteredData}
+          filterData={filterData}
+          setFilterData={setFilterData}
           UniqGenre={UniqGenre}
           UniqYears={UniqYears}
         />
