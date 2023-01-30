@@ -11,6 +11,16 @@ export const UniqArr = (data) => {
   });
   return arrUniq;
 };
+
 export const UniqYear = (data) => {
-  let uniqYear = [];
+  let uniqYear = new Set([]);
+
+  data.map((item) => {
+    let arr = item.Year;
+    uniqYear.add(arr);
+    /*  if (!uniqYear.includes(arr)) {
+      uniqYear.push(arr);
+    } */
+  });
+  return uniqYear;
 };

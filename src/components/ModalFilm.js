@@ -16,7 +16,6 @@ const ModalFilm = (props) => {
     setUpData(props.modalData);
   }, [props.modalData.imdbID]);
 
-  console.log(upData);
   const handleUpdate = () => {
     dispatch(updateMovie(upData));
   };

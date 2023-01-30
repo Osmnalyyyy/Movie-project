@@ -2,7 +2,7 @@ import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../components/Cards";
-import { UniqArr } from "../helper/functions";
+import { UniqArr, UniqYear } from "../helper/functions";
 import FormFilm from "../components/FormFilm";
 import InputSearch from "../components/InputSearch";
 import SelectSearch from "../components/SelectSearch";
@@ -12,6 +12,7 @@ const Home = () => {
   const { auth, movie, data } = useSelector((state) => state);
 
   const UniqGenre = UniqArr(data);
+  const UniqYears = UniqYear(data);
 
   return (
     <div>
@@ -19,7 +20,7 @@ const Home = () => {
       <div>
         <InputSearch />
         <SelectSearch UniqGenre={UniqGenre} />
-        <SelectSearch />
+        <SelectSearch UniqYears={UniqYears} />
       </div>
       <Cards />
     </div>

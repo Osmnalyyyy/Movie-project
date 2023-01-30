@@ -2,7 +2,6 @@ import React from "react";
 import { Form } from "react-bootstrap";
 
 const SelectSearch = ({ UniqGenre }) => {
-  console.log(UniqGenre);
   return (
     <>
       <Form.Select aria-label="Default select example">
