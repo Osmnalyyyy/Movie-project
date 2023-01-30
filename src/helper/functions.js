@@ -11,3 +11,6 @@ export const UniqArr = (data) => {
   });
   return arrUniq;
 };
+export const UniqYear = (data) => {
+  let uniqYear = [];
+};
