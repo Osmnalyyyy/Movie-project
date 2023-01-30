@@ -19,8 +19,7 @@ const Home = () => {
       <FormFilm />
       <div>
         <InputSearch />
-        <SelectSearch UniqGenre={UniqGenre} />
-        <SelectSearch UniqYears={UniqYears} />
+        <SelectSearch UniqGenre={UniqGenre} UniqYears={UniqYears} />
       </div>
       <Cards />
     </div>

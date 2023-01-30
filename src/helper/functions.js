@@ -13,14 +13,15 @@ export const UniqArr = (data) => {
 };
 
 export const UniqYear = (data) => {
-  let uniqYear = new Set([]);
+  let uniqYear = [];
 
   data.map((item) => {
     let arr = item.Year;
-    uniqYear.add(arr);
-    /*  if (!uniqYear.includes(arr)) {
+
+    if (!uniqYear.includes(arr)) {
       uniqYear.push(arr);
-    } */
+    }
   });
+
   return uniqYear;
 };
