@@ -31,49 +31,53 @@ const FilmCard = ({ item, setModalShow, setModalData }) => {
   }
 
   return (
-    <Link to={`/details/${imdbID}`}>
-      <Card className="h-100 col-3  m-3 text-center">
-        <Card.Img
-          className="card-image"
-          variant="top"
-          src={Poster}
-          height="250vh"
-        />
-        <Card.Body>
-          <div className="star">
-            {arr.map((item, i) => (
-              <span style={{ fontSize: "70%" }} key={i}>
-                {item}
-              </span>
-            ))}
-          </div>
-          <Card.Title className="card-title">{Title}</Card.Title>
-          <div className="text">
-            <Card.Text>{Plot}</Card.Text>
-          </div>
+    <Card
+      as={Link}
+      to={`/details/${imdbID}`}
+      className="h-100 col-3  m-3 text-center"
+      style={{ textDecoration: "none" }}
+      state={{ item }}
+    >
+      <Card.Img
+        className="card-image"
+        variant="top"
+        src={Poster}
+        height="250vh"
+      />
+      <Card.Body>
+        <div className="star">
+          {arr.map((item, i) => (
+            <span style={{ fontSize: "70%" }} key={i}>
+              {item}
+            </span>
+          ))}
+        </div>
+        <Card.Title className="card-title">{Title}</Card.Title>
+        <div className="text">
+          <Card.Text>{Plot}</Card.Text>
+        </div>
 
-          <div className="d-flex justify-content-space-between buton">
-            <Button
-              className=""
-              variant="success"
-              onClick={() => {
-                setModalShow(true);
-                setModalData({ Title, imdbRating, imdbID });
-              }}
-            >
-              Update
-            </Button>
-            <Button
-              variant="danger"
-              className=""
-              onClick={() => dispatch(deleteMovie(item))}
-            >
-              Delete
-            </Button>
-          </div>
-        </Card.Body>
-      </Card>
-    </Link>
+        <div className="d-flex justify-content-space-between buton">
+          <Button
+            className=""
+            variant="success"
+            onClick={() => {
+              setModalShow(true);
+              setModalData({ Title, imdbRating, imdbID });
+            }}
+          >
+            Update
+          </Button>
+          <Button
+            variant="danger"
+            className=""
+            onClick={() => dispatch(deleteMovie(item))}
+          >
+            Delete
+          </Button>
+        </div>
+      </Card.Body>
+    </Card>
   );
 };
 
