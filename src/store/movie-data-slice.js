@@ -8,7 +8,7 @@ const movieDataSlice = createSlice({
       state.push(action.payload);
     },
     deleteMovie: (state, action) => {
-      return state.filter((item) => item.imdbID !== action.payload.imdbID);
+      return state.filter((item) => item.imdbID !== action.payload);
     },
     updateMovie: (state, action) => {
       return state.map((item) => {

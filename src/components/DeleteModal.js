@@ -5,6 +5,7 @@ import { deleteMovie } from "../store/movie-data-slice";
 
 const DeleteModal = ({ item, show, handleClose }) => {
   const dispatch = useDispatch();
+
   return (
     <>
       <Modal show={show} onHide={handleClose}>

@@ -14,8 +14,6 @@ const FilmCard = ({ item, setModalShow, setModalData }) => {
 
   const { Title, Poster, imdbRating, Plot, year, Genre, imdbID } = item;
 
-  const dispatch = useDispatch();
-
   let arr = [];
   if (!imdbRating) {
     for (let i = 1; i <= 10; i++) {
@@ -82,7 +80,7 @@ const FilmCard = ({ item, setModalShow, setModalData }) => {
           </Button>
         </div>
       </Card.Body>
-      <DeleteModal show={show} handleClose={handleClose} item={item} />
+      <DeleteModal show={show} handleClose={handleClose} item={item.imdbID} />
     </Card>
   );
 };
