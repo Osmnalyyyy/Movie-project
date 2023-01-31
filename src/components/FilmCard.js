@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import "./film-card.css";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { deleteMovie } from "../store/movie-data-slice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import DeleteModal from "./DeleteModal";
 
 const FilmCard = ({ item, setModalShow, setModalData }) => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const { Title, Poster, imdbRating, Plot, year, Genre, imdbID } = item;
 
   const dispatch = useDispatch();
@@ -32,8 +37,6 @@ const FilmCard = ({ item, setModalShow, setModalData }) => {
 
   return (
     <Card
-      as={Link}
-      to={`/details/${imdbID}`}
       className="h-100 col-3  m-3 text-center"
       style={{ textDecoration: "none" }}
       state={{ item }}
@@ -71,12 +74,15 @@ const FilmCard = ({ item, setModalShow, setModalData }) => {
           <Button
             variant="danger"
             className=""
-            onClick={() => dispatch(deleteMovie(item))}
+            onClick={() => {
+              handleShow();
+            }}
           >
             Delete
           </Button>
         </div>
       </Card.Body>
+      <DeleteModal show={show} handleClose={handleClose} item={item} />
     </Card>
   );
 };
