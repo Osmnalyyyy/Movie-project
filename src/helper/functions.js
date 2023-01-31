@@ -33,8 +33,16 @@ export const filterMovie = (filter1, data) => {
         ? Math.floor(item.imdbRating) == filter1.imdbRating
         : item
     )
-    .filter((item) => (filter1.Title ? item.Title == filter1.Title : item))
-    .filter((item) => (filter1.Year ? item.Year == filter1.Year : item))
+    .filter((item) => (filter1.Genre ? item.Genre == filter1.Genre : item))
+    .filter((item) => {
+      if (item.Title.toLowerCase().includes(filter1.Title.toLowerCase())) {
+        return item;
+      } else {
+        return;
+      }
+      // filter1.Year ? item.Year == filter1.Year : item
+    })
+
     .filter((item) => {
       if (item.Genre.includes(filter1.Genre)) {
         return item;
