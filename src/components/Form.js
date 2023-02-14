@@ -1,9 +1,13 @@
 import { useFormik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
+import { saveUser } from "../store/auth-slice";
 
 const Form = (props) => {
   const { firstName, lastName, email, password } = props;
-  console.log(props);
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.auth);
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -28,10 +32,23 @@ const Form = (props) => {
       }),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      if (!formik.values.firstName) {
+        users.filter((item) => {
+          if (
+            item.email === formik.values.email &&
+            item.password === formik.values.password
+          ) {
+            return <Navigate to="/home" />;
+          }
+          return;
+        });
+      } else {
+        dispatch(saveUser(formik.values));
+        formik.resetForm();
+      }
     },
   });
-  console.log(formik.values);
+
   return (
     <div className="login-page">
       <div className="form">
