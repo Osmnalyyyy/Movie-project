@@ -53,3 +53,9 @@
 .form button:focus {
   background: #43a047;
 }
+.error {
+  text-align: left;
+  font-size: 0.8rem;
+  color: red;
+  margin-top: -18px;
+}
