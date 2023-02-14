@@ -28,31 +28,37 @@ const Home = () => {
   return (
     <div>
       <FormFilm />
-      <Button onClick={() => setFToggle(!fToggle)}>Filter {fToggle}</Button>
+      <Button onClick={() => setFToggle(!fToggle)}>
+        Filter {fToggle ? "hide" : "show"}
+      </Button>
 
       {fToggle === false ? (
         ""
       ) : (
-        <div>
-          <InputSearch filterData={filterData} setFilterData={setFilterData} />
-          <SelectSearch
-            filterData={filterData}
-            setFilterData={setFilterData}
-            UniqGenre={UniqGenre}
-            UniqYears={UniqYears}
-          />
-        </div>
+        <>
+          <div>
+            <InputSearch
+              filterData={filterData}
+              setFilterData={setFilterData}
+            />
+            <SelectSearch
+              filterData={filterData}
+              setFilterData={setFilterData}
+              UniqGenre={UniqGenre}
+              UniqYears={UniqYears}
+            />
+          </div>
+          <div>
+            <Button
+              variant="info"
+              type="button"
+              onClick={() => setFilterData(initialValues)}
+            >
+              Clear Filter
+            </Button>
+          </div>
+        </>
       )}
-
-      <div>
-        <Button
-          variant="info"
-          type="button"
-          onClick={() => setFilterData(initialValues)}
-        >
-          Clear Filter
-        </Button>
-      </div>
 
       <Cards filteredData={filteredData} />
     </div>
