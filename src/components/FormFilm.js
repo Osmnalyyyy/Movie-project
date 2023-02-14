@@ -29,13 +29,13 @@ const FormFilm = () => {
             style={{ width: "100%" }}
             value={searchMovie}
             onChange={(e) => setSearchMovie(e.target.value)}
-            className="mb-2"
+            className="mb-2 w-100"
           />
-          <Button className="btn btn-warning me-3" type="submit">
+          <Button className="btn btn-warning  lg-w-50 md-w-25" type="submit">
             Search Movie
           </Button>
           <Button
-            className="btn btn-info"
+            className="btn btn-info lg-w-50 md-w-25"
             type="button"
             onClick={() => dispatch(addMovie(movie.movie))}
           >

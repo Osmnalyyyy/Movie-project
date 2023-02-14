@@ -61,7 +61,7 @@ const Form = (props) => {
                 value={formik.values.lastName}
               />
               {formik.touched.lastName && formik.errors.lastName ? (
-                <div>{formik.errors.lastName}</div>
+                <div className="error">{formik.errors.lastName}</div>
               ) : null}
             </>
           )}
@@ -76,7 +76,7 @@ const Form = (props) => {
             value={formik.values.email}
           />
           {formik.touched.email && formik.errors.email ? (
-            <div>{formik.errors.email}</div>
+            <div className="error">{formik.errors.email}</div>
           ) : null}
 
           <label htmlFor="password">Password</label>
@@ -89,7 +89,7 @@ const Form = (props) => {
             value={formik.values.password}
           />
           {formik.touched.password && formik.errors.password ? (
-            <div>{formik.errors.password}</div>
+            <div className="error">{formik.errors.password}</div>
           ) : null}
 
           <button type="submit">Submit</button>
