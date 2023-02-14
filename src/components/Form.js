@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { saveUser } from "../store/auth-slice";
 
@@ -7,6 +8,7 @@ const Form = (props) => {
   const { firstName, lastName, email, password } = props;
   const dispatch = useDispatch();
   const users = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -38,7 +40,10 @@ const Form = (props) => {
             item.email === formik.values.email &&
             item.password === formik.values.password
           ) {
-            return <Navigate to="/home" />;
+            navigate("/");
+          } else {
+            alert("Yanlış kullanıcı adı veya şifre girdiniz");
+            formik.resetForm();
           }
           return;
         });
