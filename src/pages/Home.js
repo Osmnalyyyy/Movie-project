@@ -9,6 +9,8 @@ import SelectSearch from "../components/SelectSearch";
 import { Button } from "react-bootstrap";
 
 const Home = () => {
+  const [fToggle, setFToggle] = useState(true);
+
   const initialValues = {
     imdbRating: "",
     Title: "",
@@ -26,15 +28,22 @@ const Home = () => {
   return (
     <div>
       <FormFilm />
-      <div>
-        <InputSearch filterData={filterData} setFilterData={setFilterData} />
-        <SelectSearch
-          filterData={filterData}
-          setFilterData={setFilterData}
-          UniqGenre={UniqGenre}
-          UniqYears={UniqYears}
-        />
-      </div>
+      <Button onClick={() => setFToggle(!fToggle)}>Filter {fToggle}</Button>
+
+      {fToggle === false ? (
+        ""
+      ) : (
+        <div>
+          <InputSearch filterData={filterData} setFilterData={setFilterData} />
+          <SelectSearch
+            filterData={filterData}
+            setFilterData={setFilterData}
+            UniqGenre={UniqGenre}
+            UniqYears={UniqYears}
+          />
+        </div>
+      )}
+
       <div>
         <Button
           variant="info"
