@@ -6,6 +6,7 @@ const Details = () => {
   const { id } = useParams();
 
   const location = useLocation();
+  console.log(location.state);
   const {
     Title,
     Actors,
@@ -16,7 +17,7 @@ const Details = () => {
     Genre,
     Awards,
     Poster,
-  } = location.state.item;
+  } = location.state;
 
   return (
     <Row>
