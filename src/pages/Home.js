@@ -17,7 +17,7 @@ const Home = () => {
     Year: "",
     Genre: "",
   };
-  const dispatch = useDispatch();
+
   const { auth, movie, data } = useSelector((state) => state);
   const [filterData, setFilterData] = useState(initialValues);
   const UniqGenre = UniqArr(data);
