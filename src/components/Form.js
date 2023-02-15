@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import useAuth from "../helper/zustand";
 import { saveUser } from "../store/auth-slice";
 
 const Form = (props) => {
@@ -9,6 +10,7 @@ const Form = (props) => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  const setAuth = useAuth((state) => state.setAuth);
 
   const formik = useFormik({
     initialValues: {
@@ -36,21 +38,24 @@ const Form = (props) => {
     onSubmit: (values) => {
       if (!formik.values.firstName) {
         users.filter((item) => {
+          console.log(
+            item.email,
+            formik.values.email,
+            item.password,
+            formik.values.password
+          );
           if (
             item.email === formik.values.email &&
             item.password === formik.values.password
           ) {
+            setAuth();
             navigate("/");
-          } else {
-            alert("Yanlış kullanıcı adı veya şifre girdiniz");
-            formik.resetForm();
           }
-          return;
         });
       } else {
         dispatch(saveUser(formik.values));
-        formik.resetForm();
       }
+      formik.resetForm();
     },
   });
 
