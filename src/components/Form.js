@@ -11,7 +11,7 @@ const Form = (props) => {
   const users = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const setAuth = useAuth((state) => state.setAuth);
-
+  const setUser = useAuth((state) => state.setUser);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -49,6 +49,7 @@ const Form = (props) => {
             item.password === formik.values.password
           ) {
             setAuth();
+            setUser(item);
             navigate("/");
           }
         });
