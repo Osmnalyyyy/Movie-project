@@ -1,10 +1,12 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import useAuth from "../helper/zustand";
 import Details from "../pages/Details";
 import Home from "../pages/Home";
 
 const PrivateRouter = () => {
-  let auth = true;
+  const auth = useAuth((state) => state.authZus);
+
   return <>{auth ? <Outlet /> : <Navigate to="/" />}</>;
 };
 
