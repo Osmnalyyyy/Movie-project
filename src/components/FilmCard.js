@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import "./film-card.css";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
-import { deleteMovie } from "../store/movie-data-slice";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import DeleteModal from "./DeleteModal";
 

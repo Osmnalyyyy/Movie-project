@@ -7,10 +7,15 @@
 
 .buton {
   width: 35%;
-  height: 25px;
+
   padding: 1px;
   text-align: center;
   align-items: center;
+}
+.buton button {
+  height: 6vh;
+  justify-content: center !important;
+  align-items: center !important;
 }
 .star {
   color: rgb(168, 168, 5);
