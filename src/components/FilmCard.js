@@ -39,12 +39,14 @@ const FilmCard = ({ item, setModalShow, setModalData }) => {
       style={{ textDecoration: "none" }}
       state={{ item }}
     >
-      <Card.Img
-        className="card-image"
-        variant="top"
-        src={Poster}
-        height="250vh"
-      />
+      <Link to={`/details/${imdbID}`} state={item}>
+        <Card.Img
+          className="card-image"
+          variant="top"
+          src={Poster}
+          height="250vh"
+        />
+      </Link>
       <Card.Body>
         <div className="star">
           {arr.map((item, i) => (
