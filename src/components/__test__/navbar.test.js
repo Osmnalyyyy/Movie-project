@@ -55,3 +55,10 @@ describe("go to want to page", () => {
     expect(path).toBe("http://localhost/");
   });
 });
+describe("user auth", () => {
+  it("is logout button not to be", () => {
+    render(<MockToDoNavbar />);
+    const buttonEl = screen.queryByRole("button", { name: "Logout" });
+    expect(buttonEl).not.toBe();
+  });
+});
