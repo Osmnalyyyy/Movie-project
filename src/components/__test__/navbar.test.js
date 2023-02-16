@@ -40,4 +40,11 @@ describe("go to want to page", () => {
     const path = window.location.href;
     expect(path).toBe("http://localhost/login");
   });
+  it("when register button is clicked went to register page", () => {
+    render(<MockToDoNavbar />);
+    const buttonEl = screen.getByRole("button", { name: "Register" });
+    userEvent.click(buttonEl);
+    const path = window.location.href;
+    expect(path).toBe("http://localhost/register");
+  });
 });
