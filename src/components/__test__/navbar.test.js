@@ -47,4 +47,11 @@ describe("go to want to page", () => {
     const path = window.location.href;
     expect(path).toBe("http://localhost/register");
   });
+  it("when home button is clicked went to home page", () => {
+    render(<MockToDoNavbar />);
+    const buttonEl = screen.getByRole("button", { name: "Home" });
+    userEvent.click(buttonEl);
+    const path = window.location.href;
+    expect(path).toBe("http://localhost/");
+  });
 });
